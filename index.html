@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Events News Block - Deccan Herald</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Header Styles - From Original Site */
+        .top-header {
+            background: linear-gradient(135deg, #2ba3c7, #1e8aa8);
+            color: white;
+            padding: 0.4rem 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex: 1;
+            margin-left: 2rem;
+            overflow-x: auto;
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .main-nav::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-separator {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            margin: 0 0.1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .header-right span {
+            color: white;
+            font-weight: 500;
+        }
+
+        .sign-in-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-size: 0.75rem;
+        }
+
+        .sign-in-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: white;
+            color: #333;
+            padding: 0.4rem 0;
+            position: relative;
+            z-index: 999;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: auto;
+            padding: 0.2rem 0;
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #f0f0f0;
+            color: #2ba3c7;
+        }
+
+        /* Mobile Main Navigation */
+        .mobile-main-nav {
+            display: none;
+            background: #1a1a1a;
+            color: white;
+            padding: 0.3rem 0;
+            overflow-x: auto;
+            transition: transform 0.3s ease;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .mobile-main-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mobile-main-nav.hidden {
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+
+        .mobile-main-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .mobile-main-nav-links {
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.2rem 0;
+            white-space: nowrap;
+        }
+
+        .mobile-main-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .mobile-main-nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .mobile-nav-separator {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.6rem;
+        }
+
+
+
+        /* Special Events Block */
+        .special-events-wrapper {
+            margin: 20px 0;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .special-events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .special-events-block {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .event-header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .event-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            background: #2d2d2d;
+            padding: 0 30px;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .live-indicator {
+            background: #ff4444;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .breaking-indicator {
+            background: #ff8800;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: flash 1.5s infinite;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes flash {
+            0% { background: #ff8800; }
+            50% { background: #ffaa33; }
+            100% { background: #ff8800; }
+        }
+
+        .last-updated {
+            color: #ccc;
+            font-size: 14px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2d2d2d;
+            padding: 0 15px;
+            z-index: 2;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px; /* Reduced from 24px */
+        }
+
+        /* Hero Card Styles - Sharp Edges */
+        .hero-card {
+            background: #2d2d2d;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #2d2d2d;
+            border-right: 1px solid #2d2d2d;
+        }
+
+        .hero-media {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            background: #222;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #ff4444;
+        }
+
+        .hero-static-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Removed hero-overlay to eliminate labels */
+
+        .hero-content {
+            padding: 16px;
+        }
+
+        .hero-headline {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            color: #fff;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #ccc;
+            margin-bottom: 12px;
+        }
+
+        .hero-status {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .status-badge {
+            background: #ff4444;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-right: 8px;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+        /* Live Updates Section */
+        .live-updates {
+            margin: 16px 0;
+            padding: 12px 0;
+            border-top: 1px solid #444;
+        }
+
+        .live-updates-header {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff4444;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .live-updates-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .live-update-item {
+            display: flex;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .live-update-item:last-child {
+            border-bottom: none;
+        }
+
+        .live-update-time {
+            font-size: 11px;
+            color: #ff4444;
+            font-weight: bold;
+            min-width: 45px;
+            flex-shrink: 0;
+        }
+
+        .live-update-text {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.3;
+        }
+
+        /* Side Cards - Sharp Edges */
+        .side-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-left: 20px;
+            border-left: 1px solid #555;
+        }
+
+        .side-card {
+            background: #2d2d2d;
+            border: 1px solid #2d2d2d;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-bottom: 1px solid #555;
+        }
+
+        .side-card:last-child {
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        .side-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .side-card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .side-card-content {
+            padding: 16px;
+        }
+
+        .side-card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            color: #fff;
+        }
+
+        .side-card-excerpt {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .side-card-time {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* Demo controls - Sharp Edges */
+        .demo-controls {
+            background: #444;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .demo-controls button {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .demo-controls button:hover {
+            background: #777;
+        }
+
+        .demo-controls button.active {
+            background: #ff4444;
+        }
+
+        /* Top News Block Styles - Exact DH Layout */
+        .top-news-wrapper {
+            background: white;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .top-news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-news-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .top-news-header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #333;
+            z-index: 1;
+        }
+
+        .top-news-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            background: white;
+            padding: 0 30px;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+        }
+
+        .dh-news-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            gap: 30px;
+            margin-top: 30px;
+            min-height: 600px;
+            align-items: start;
+        }
+
+        /* Left Headlines Column */
+        .left-headlines {
+            border-right: 1px solid #eee;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .headline-item {
+            margin-bottom: 0px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .headline-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 8px;
+        }
+
+        .headline-bullet {
+            width: 8px;
+            height: 8px;
+            background: #2ba3c7;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .headline-text {
+            font-size: 14px;
+            line-height: 1.2;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .headline-text:hover {
+            color: #2ba3c7;
+        }
+
+        /* Center Main Story */
+        .center-main-story {
+            border-right: 1px solid #eee;
+            padding-right: 20px;
+        }
+
+        .main-story-headline {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .live-tag {
+            background: #ff4444;
+            color: white;
+            padding: 3px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .main-story-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .sub-stories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .sub-story {
+            text-align: center;
+        }
+
+        .sub-story-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+
+        .sub-story-category {
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .sub-story-title {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        /* Right Column Stories */
+        .right-stories {
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .right-story {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            align-items: flex-start;
+            border-bottom: 1px solid #eee;
+        }
+
+        .right-story:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .right-story-image {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .right-story-content {
+            flex: 1;
+        }
+
+        .right-story-title {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.3;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .right-story-title:hover {
+            color: #2ba3c7;
+        }
+
+        .featured-content-tag {
+            background: #e3f2fd;
+            color: #2ba3c7;
+            font-size: 10px;
+            padding: 2px 6px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* India Section */
+        .india-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .india-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .india-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .see-more-link {
+            color: #2ba3c7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .india-stories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .india-story {
+            display: flex;
+            gap: 15px;
+        }
+
+        .india-story-image {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+        }
+
+        .india-story-title {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.3;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .india-story-title:hover {
+            color: #2ba3c7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .top-header {
+                height: 76px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-main-nav {
+                height: 32px;
+                display: flex;
+                align-items: center;
+                padding: 0;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-bar {
+                height: 44px;
+                display: flex;
+                align-items: center;
+                padding: 0;
+                position: sticky;
+                top: 32px;
+                z-index: 998;
+                transition: top 0.3s ease;
+            }
+
+            .header-content {
+                padding: 0 0.5rem;
+                height: 100%;
+            }
+
+            .mobile-main-nav-content {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-content {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .mobile-main-nav {
+                display: block;
+            }
+
+            .header-right {
+                gap: 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .header-right span {
+                display: inline;
+            }
+
+            .sign-in-btn {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                padding: 0;
+                height: 100%;
+                align-items: center;
+            }
+
+            .mobile-main-nav-links {
+                height: 100%;
+                align-items: center;
+                padding: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .special-events-wrapper {
+                margin: 10px 0;
+                padding: 0;
+            }
+
+            .special-events-container {
+                padding: 0 16px;
+            }
+
+            .special-events-block {
+                padding: 16px 0;
+            }
+
+            .event-title {
+                font-size: 18px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .hero-media {
+                height: 300px;
+            }
+
+            .hero-headline {
+                font-size: 22px;
+            }
+
+            .live-updates {
+                margin: 12px 0;
+                padding: 10px 0;
+            }
+
+            .live-updates-header {
+                font-size: 13px;
+            }
+
+            .live-update-item {
+                gap: 8px;
+                padding: 6px 0;
+            }
+
+            .live-update-time {
+                min-width: 40px;
+                font-size: 10px;
+            }
+
+            .live-update-text {
+                font-size: 12px;
+            }
+
+            .side-cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .side-card-image {
+                height: 140px;
+            }
+
+            /* Top News Block Mobile Styles */
+            .top-news-container {
+                padding: 0 16px;
+            }
+
+            .dh-news-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .left-headlines {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+                height: auto;
+                justify-content: flex-start;
+            }
+
+            .left-headlines .headline-item {
+                padding-top: 8px;
+                padding-bottom: 8px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #eee;
+            }
+
+            .left-headlines .headline-item:last-child {
+                border-bottom: none;
+                padding-bottom: 8px;
+            }
+
+            .center-main-story {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+            }
+
+            .right-stories {
+                padding-left: 0;
+                height: auto;
+                justify-content: flex-start;
+            }
+
+            .right-stories .right-story {
+                padding-bottom: 5px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .right-stories .right-story:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .sub-stories {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .main-story-headline {
+                font-size: 22px;
+            }
+
+            .main-story-image {
+                height: 200px;
+            }
+
+            .india-stories {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .india-story {
+                flex-direction: column;
+            }
+
+            .india-story-image {
+                width: 100%;
+                height: 150px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .side-cards {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            /* Top News Block Tablet Styles */
+            .dh-news-layout {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .left-headlines {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                height: auto;
+            }
+
+            .left-headlines .headline-item {
+                margin-bottom: 0px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #eee;
+            }
+
+            .left-headlines .headline-item:last-child {
+                border-bottom: none;
+                padding-bottom: 8px;
+            }
+
+            .center-main-story {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+            }
+
+            .right-stories {
+                padding-left: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                height: auto;
+            }
+
+            .right-stories .right-story {
+                margin-bottom: 6px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .right-stories .right-story:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .india-stories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* Desktop Layout */
+        @media (min-width: 768px) {
+            .top-header {
+                position: sticky;
+                top: 0;
+            }
+
+            .mobile-main-nav {
+                display: none;
+            }
+
+            .nav-bar {
+                position: relative;
+                background: #1a1a1a;
+                color: white;
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                color: white;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: #2ba3c7;
+                color: white;
+            }
+
+
+
+            .special-events-wrapper {
+                padding: 0;
+            }
+
+            .special-events-container {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="logo">DH</div>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <span class="nav-separator">|</span>
+                <a href="#">India</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Karnataka</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Opinion</a>
+                <span class="nav-separator">|</span>
+                <a href="#">World</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Business</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Sports</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Video</a>
+            </nav>
+            <div class="header-right">
+                <span>Newsletters 🔒</span>
+                <span>ePaper ↗</span>
+                <a href="#" class="sign-in-btn">👤 Sign in</a>
+                <button style="background: none; border: none; color: white; font-size: 1rem; padding: 0.2rem;">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Main Navigation -->
+    <nav class="mobile-main-nav">
+        <div class="mobile-main-nav-content">
+            <div class="mobile-main-nav-links">
+                <a href="#">Home</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">India</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">Karnataka</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">Opinion</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">World</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">Business</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">Sports</a>
+                <span class="mobile-nav-separator">|</span>
+                <a href="#">Video</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="#">Operation Sindoor</a>
+                <a href="#">News Shots</a>
+                <a href="#">Explainers</a>
+                <a href="#">Bengaluru</a>
+                <a href="#">Trending</a>
+                <a href="#">Photos</a>
+                <a href="#">DH Brandspot</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+   
+
+    <div class="special-events-wrapper">
+        <div class="special-events-block">
+            <div class="special-events-container">
+                <div class="event-header">
+                    <div class="event-title">
+                        <span id="event-badge" class="live-indicator">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <circle cx="6" cy="6" r="6"/>
+                            </svg>
+                            LIVE
+                        </span>
+                        <span>Ukraine Conflict - LIVE</span>
+                    </div>
+                    
+                </div>
+
+                <div class="content-grid">
+                    <div class="hero-card">
+                        <!-- Video Player Hero -->
+                        <div id="hero-video" class="hero-media">
+                            <video class="hero-video" controls autoplay muted loop>
+                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- Carousel Hero -->
+                        <div id="hero-carousel" class="hero-media" style="display: none;">
+                            <div class="hero-carousel">
+                                <div class="carousel-slide active">
+                                    <img src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="News Image 1">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="News Image 2">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="News Image 3">
+                                </div>
+                                <div class="carousel-dots">
+                                    <div class="carousel-dot active" onclick="showSlide(0)"></div>
+                                    <div class="carousel-dot" onclick="showSlide(1)"></div>
+                                    <div class="carousel-dot" onclick="showSlide(2)"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Static Image Hero -->
+                        <div id="hero-static" class="hero-media" style="display: none;">
+                            <img class="hero-static-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Breaking News">
+                        </div>
+
+                        <div class="hero-content">
+                            <h2 class="hero-headline">
+                                <span class="status-badge">
+                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor">
+                                        <circle cx="6" cy="6" r="6"/>
+                                    </svg>
+                                    LIVE
+                                </span>
+                                Major Escalation in Eastern Ukraine as Forces Advance
+                            </h2>
+                            <p class="hero-description">
+                                Ukrainian forces report significant territorial gains in the eastern regions as international monitors 
+                                confirm heavy fighting continues through the night. Multiple explosions heard in major cities.
+                            </p>
+                            
+                            <!-- Live Updates Section -->
+                            <div class="live-updates">
+                                
+                                <div class="live-updates-list">
+                                    <div class="live-update-item">
+                                        <div class="live-update-time">2:34 PM</div>
+                                        <div class="live-update-text">Ukrainian forces advance 5km into eastern territory, capturing strategic crossroads near Bakhmut</div>
+                                    </div>
+                                    <div class="live-update-item">
+                                        <div class="live-update-time">2:18 PM</div>
+                                        <div class="live-update-text">International observers confirm artillery exchanges intensifying along northern front</div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="hero-status">
+                                <span>2:34 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="side-cards">
+                        <div class="side-card">
+                            <img class="side-card-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Side Story 1">
+                            <div class="side-card-content">
+                                <h3 class="side-card-title">Humanitarian Aid Reaches Border Regions</h3>
+                                <p class="side-card-excerpt">International relief organizations successfully deliver critical supplies to affected civilians in border towns...</p>
+                                <div class="side-card-time">12 min ago</div>
+                            </div>
+                        </div>
+
+                        <div class="side-card">
+                            <img class="side-card-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Side Story 2">
+                            <div class="side-card-content">
+                                <h3 class="side-card-title">EU Leaders Call Emergency Meeting</h3>
+                                <p class="side-card-excerpt">European Union officials schedule urgent discussions on additional sanctions and military support measures...</p>
+                                <div class="side-card-time">18 min ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top News Block -->
+    <div class="top-news-wrapper">
+        <div class="top-news-container">
+            <div class="top-news-header">
+                <h2 class="top-news-title">Top News</h2>
+            </div>
+
+            <div class="dh-news-layout">
+                <!-- Left Headlines Column -->
+                <div class="left-headlines">
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Iran fires missiles at US airbase in Qatar; attack intercepted</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Karnataka Examinations Authority to allot seats via OTP, face ID</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Satellite images suggest US avoided Iran's nuclear reactors</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">AIA has 'substantial proof' on Pabalgam terrorists' ids</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Bluru driver loses teeth in assault instigated by ex-BJP MP</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Jasprit Bumrah: Fast, furious, fantastic</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Woman sent fake bomb threats to frame man who...</a>
+                    </div>
+                    <div class="headline-item">
+                        <div class="headline-bullet"></div>
+                        <a href="#" class="headline-text">Explained | How pilots prepare for B-2 bomber...</a>
+                    </div>
+                </div>
+
+                <!-- Center Main Story -->
+                <div class="center-main-story">
+                    <h1 class="main-story-headline">
+                        <span class="live-tag">LIVE</span>
+                        West Asia Conflict LIVE | At least 3 killed in Israeli city as Iranian missiles rain down
+                    </h1>
+                    <img class="main-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="West Asia Conflict">
+                    
+                    <div class="sub-stories">
+                        <div class="sub-story">
+                            <img class="sub-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Trump News">
+                            <div class="sub-story-category">WORLD</div>
+                            <div class="sub-story-title">Trump says he brokered Israel-Iran ceasefire</div>
+                        </div>
+                        <div class="sub-story">
+                            <img class="sub-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="SDGs India">
+                            <div class="sub-story-category">INDIA</div>
+                            <div class="sub-story-title">India enters top 100 in global SDGs rankings for first time</div>
+                        </div>
+                        <div class="sub-story">
+                            <img class="sub-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Iran Economy">
+                            <div class="sub-story-category">ECONOMY</div>
+                            <div class="sub-story-title">Iran shutting Strait of Hormuz to hit Indian economy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Stories -->
+                <div class="right-stories">
+                    <div class="right-story">
+                        <img class="right-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Adani News">
+                        <div class="right-story-content">
+                            <a href="#" class="right-story-title">Adani secures Rs 8.62 crore financing for Mumbai Airport</a>
+                        </div>
+                    </div>
+                    
+                    <div class="right-story">
+                        <img class="right-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="India Iran">
+                        <div class="right-story-content">
+                            <a href="#" class="right-story-title">Sufi saints to strategic ports: Many layers of India-Iran ties</a>
+                        </div>
+                    </div>
+                    
+                    <div class="right-story">
+                        <img class="right-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Airlines">
+                        <div class="right-story-content">
+                            <a href="#" class="right-story-title">Indian airlines suspend flights to West Asia amid rising tensions</a>
+                        </div>
+                    </div>
+                    
+                    <div class="right-story">
+                        <img class="right-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Axiom Mission">
+                        <div class="right-story-content">
+                            <a href="#" class="right-story-title">Shubhanshu Shukla's Axiom-4 mission now eyeing Jun 25 launch</a>
+                        </div>
+                    </div>
+                    
+                    <div class="right-story">
+                        <img class="right-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Cricket">
+                        <div class="right-story-content">
+                            <a href="#" class="right-story-title">Khaka Cong unrest grows as MLA says he'll quit over funds</a>
+                        </div>
+                    </div>
+                    
+                    <div class="right-story">
+                        <div class="right-story-content">
+                            <div class="featured-content-tag">FEATURED CONTENT</div>
+                            <a href="#" class="right-story-title">Use Quid Miner to mine BTC and DOGE for passive income</a>
+                        </div>
+                    </div>
+                    
+                    <div class="right-story">
+                        <img class="right-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Insurance">
+                        <div class="right-story-content">
+                            <div class="featured-content-tag">FEATURED CONTENT</div>
+                            <a href="#" class="right-story-title">Why Reviewing Your Medical Insurance Policy Every Year I...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- India Section -->
+            <div class="india-section">
+                <div class="india-header">
+                    <h2 class="india-title">India</h2>
+                    <a href="#" class="see-more-link">See More →</a>
+                </div>
+                
+                <div class="india-stories">
+                    <div class="india-story">
+                        <img class="india-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Emergency Story">
+                        <div class="india-story-content">
+                            <a href="#" class="india-story-title">Aftershocks of Emergency: When referendum almost made it to Constitution</a>
+                        </div>
+                    </div>
+                    
+                    <div class="india-story">
+                        <img class="india-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Bureaucracy Story">
+                        <div class="india-story-content">
+                            <a href="#" class="india-story-title">Bureaucracy's no to novel ideas is a problem: Gadkari</a>
+                        </div>
+                    </div>
+                    
+                    <div class="india-story">
+                        <img class="india-story-image" src="https://images.assettype.com/deccanherald/2025-06-24/ngm9l9lo/2025newsmlRC2Q8FA4Q0XI1664639382.jpeg" alt="Politics Story">
+                        <div class="india-story-content">
+                            <a href="#" class="india-story-title">How the political landscape is shifting in key states</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- Demo Controls -->
+    <div class="demo-controls">
+        <strong>Demo Controls:</strong>
+        <button onclick="switchHeroType('video')" class="active" id="video-btn">Video Player</button>
+        <button onclick="switchHeroType('carousel')" id="carousel-btn">Image Carousel</button>
+        <button onclick="switchHeroType('static')" id="static-btn">Static Image</button>
+        <button onclick="toggleBadge()" id="badge-btn">Toggle LIVE/BREAKING</button>
+        <button onclick="addLiveUpdate()" id="update-btn">Add Live Update</button>
+    </div>
+    <script>
+        let currentSlide = 0;
+        let isLive = true;
+        let lastScrollTop = 0;
+        let mobileMainNav = null;
+        let isDesktop = window.innerWidth >= 768;
+        let scrollTimeout = null;
+        let isScrolling = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            mobileMainNav = document.querySelector('.mobile-main-nav');
+            
+            console.log('🚀 Scroll tracking initialized');
+            console.log('📱 Device type:', isDesktop ? 'Desktop' : 'Mobile');
+            
+            // Log initial sticky state
+            if (!isDesktop) {
+                console.log('📌 INITIAL STATE - Mobile L2 nav is STICKY at top');
+                console.log('📌 INITIAL STATE - Mobile L1 menu is STICKY at 32px below L2');
+            } else {
+                console.log('📌 INITIAL STATE - Desktop blue header is STICKY by default');
+                console.log('📌 Currently sticky items: Blue Header only');
+            }
+            
+            // Update on resize
+            window.addEventListener('resize', function() {
+                const wasDesktop = isDesktop;
+                isDesktop = window.innerWidth >= 768;
+                if (wasDesktop !== isDesktop) {
+                    console.log('📱 Device type changed to:', isDesktop ? 'Desktop' : 'Mobile');
+                }
+            });
+            
+            // Throttled scroll handler
+            function handleScroll() {
+                if (isScrolling) return;
+                isScrolling = true;
+                
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+                const scrollDifference = Math.abs(scrollTop - lastScrollTop);
+                
+                // Only process significant scroll changes to prevent micro-scrolling loops
+                if (scrollDifference < 5) {
+                    isScrolling = false;
+                    return;
+                }
+                
+                // Log scroll direction (less frequently)
+                if (scrollDifference > 20) {
+                    console.log('⬇️⬆️ Scroll direction:', scrollDirection, '| Position:', scrollTop + 'px', '| Difference:', scrollDifference + 'px');
+                }
+                
+                if (!isDesktop && mobileMainNav) {
+                    const navBar = document.querySelector('.nav-bar');
+                    
+                    // Only change nav state on significant scroll movements
+                    if (scrollDifference > 15) {
+                        if (scrollDirection === 'down' && !mobileMainNav.classList.contains('hidden')) {
+                            mobileMainNav.classList.add('hidden');
+                            // When L2 menu is hidden, L1 menu moves to top
+                            if (navBar) navBar.style.top = '0px';
+                            console.log('📱 MOBILE: L2 nav HIDDEN - L1 menu now at top (0px)');
+                        } else if (scrollDirection === 'up' && mobileMainNav.classList.contains('hidden')) {
+                            mobileMainNav.classList.remove('hidden');
+                            // When L2 menu is shown, L1 menu moves below it
+                            if (navBar) navBar.style.top = '32px';
+                            console.log('📱 MOBILE: L2 nav SHOWN - L1 menu below L2 (32px)');
+                        }
+                    }
+                }
+                
+                lastScrollTop = scrollTop;
+                
+                // Reset scrolling flag after a short delay
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 50);
+            }
+            
+            // Use throttled scroll event
+            window.addEventListener('scroll', function() {
+                if (scrollTimeout) {
+                    clearTimeout(scrollTimeout);
+                }
+                scrollTimeout = setTimeout(handleScroll, 16); // ~60fps
+            });
+        });
+
+        function switchHeroType(type) {
+            // Hide all hero types
+            document.getElementById('hero-video').style.display = 'none';
+            document.getElementById('hero-carousel').style.display = 'none';
+            document.getElementById('hero-static').style.display = 'none';
+
+            // Show selected type
+            document.getElementById('hero-' + type).style.display = 'block';
+
+            // Update button states
+            document.querySelectorAll('.demo-controls button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(type + '-btn').classList.add('active');
+        }
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+
+            currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function addLiveUpdate() {
+            const liveUpdatesList = document.querySelector('.live-updates-list');
+            const currentTime = new Date();
+            const timeString = currentTime.getHours().toString().padStart(2, '0') + ':' + 
+                             currentTime.getMinutes().toString().padStart(2, '0') + ' PM';
+            
+            const sampleUpdates = [
+                "New convoy of humanitarian aid vehicles crosses border checkpoint",
+                "Diplomatic talks scheduled for emergency session tomorrow morning",
+                "International monitoring team reports ceasefire violations in sector 7",
+                "Civilian evacuation completed from disputed territory zones",
+                "NATO officials issue statement calling for immediate de-escalation"
+            ];
+            
+            const randomUpdate = sampleUpdates[Math.floor(Math.random() * sampleUpdates.length)];
+            
+            // Create new update element
+            const newUpdate = document.createElement('div');
+            newUpdate.className = 'live-update-item';
+            newUpdate.style.opacity = '0';
+            newUpdate.innerHTML = `
+                <div class="live-update-time">${timeString}</div>
+                <div class="live-update-text">${randomUpdate}</div>
+            `;
+            
+            // Add to top of list
+            liveUpdatesList.insertBefore(newUpdate, liveUpdatesList.firstChild);
+            
+            // Animate in
+            setTimeout(() => {
+                newUpdate.style.transition = 'opacity 0.3s ease';
+                newUpdate.style.opacity = '1';
+            }, 50);
+            
+            // Remove oldest update if more than 3
+            const updates = liveUpdatesList.querySelectorAll('.live-update-item');
+            if (updates.length > 3) {
+                const lastUpdate = updates[updates.length - 1];
+                lastUpdate.style.transition = 'opacity 0.3s ease';
+                lastUpdate.style.opacity = '0';
+                setTimeout(() => {
+                    lastUpdate.remove();
+                }, 300);
+            }
+        }
+
+        function toggleBadge() {
+            const badge = document.getElementById('event-badge');
+            if (isLive) {
+                badge.className = 'breaking-indicator';
+                badge.innerHTML = `
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <path d="M6.5 0L4 4.5h2.5L5.5 12L8 7.5H5.5L6.5 0z"/>
+                    </svg>
+                    BREAKING
+                `;
+            } else {
+                badge.className = 'live-indicator';
+                badge.innerHTML = `
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <circle cx="6" cy="6" r="6"/>
+                    </svg>
+                    LIVE
+                `;
+            }
+            isLive = !isLive;
+        }
+
+        // Auto-advance carousel
+        setInterval(() => {
+            if (document.getElementById('hero-carousel').style.display !== 'none') {
+                const nextSlide = (currentSlide + 1) % 3;
+                showSlide(nextSlide);
+            }
+        }, 4000);
+
+        // Simulate live updates
+        setInterval(() => {
+            const timeElements = document.querySelectorAll('.last-updated, .side-card-time');
+            // In a real implementation, this would fetch new data
+        }, 30000);
+    </script>
+</body>
+</html>
