@@ -1347,12 +1347,6 @@
             <div class="special-events-container">
                 <div class="event-header">
                     <div class="event-title">
-                        <span id="event-badge" class="status-badge">
-                            <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor">
-                                <circle cx="6" cy="6" r="6"/>
-                            </svg>
-                            LIVE
-                        </span>
                         <span>Ukraine Conflict - LIVE</span>
                     </div>
                 </div>
@@ -1609,7 +1603,6 @@
         <button onclick="switchHeroType('video')" class="active" id="video-btn">Video Player</button>
         <button onclick="switchHeroType('carousel')" id="carousel-btn">Image Carousel</button>
         <button onclick="switchHeroType('static')" id="static-btn">Static Image</button>
-        <button onclick="toggleBadge()" id="badge-btn">Toggle LIVE/BREAKING</button>
         <button onclick="addLiveUpdate()" id="update-btn">Add Live Update</button>
     </div>
     <script>
@@ -1802,25 +1795,8 @@
         }
 
         function toggleBadge() {
-            const badge = document.getElementById('event-badge');
-            if (isLive) {
-                badge.className = 'breaking-indicator';
-                badge.innerHTML = `
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                        <path d="M6.5 0L4 4.5h2.5L5.5 12L8 7.5H5.5L6.5 0z"/>
-                    </svg>
-                    BREAKING
-                `;
-            } else {
-                badge.className = 'status-badge';
-                badge.innerHTML = `
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor">
-                        <circle cx="6" cy="6" r="6"/>
-                    </svg>
-                    LIVE
-                `;
-            }
-            isLive = !isLive;
+            // Badge functionality removed - no longer applicable
+            console.log('Badge toggle functionality has been removed');
         }
 
         // Auto-advance carousel
